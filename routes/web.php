@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\TableController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +25,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Penduduk
+Route::get('/Penduduk', [PendudukController::class, 'index'])->name('penduduk');
+
+// Region
+Route::get('/Wilayah', [RegionController::class, 'index'])->name('wilayah');
+
+// Table
+Route::get('/Table', [TableController::class, 'index'])->name('wilayah');

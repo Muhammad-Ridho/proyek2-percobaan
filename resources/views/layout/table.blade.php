@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="content">
-    <div class="container-fluid"><h1>halo</h1></div>
+    <div class="container-fluid"><h1>Halaman Table</h1></div>
   </div>
 
 @endsection

@@ -4,31 +4,31 @@
 
       Tip 2: you can also add an image using data-image tag
   -->
-    <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+    <div class="logo"><a href="" class="simple-text logo-normal">
         PENCATATAN PENDUDUK
       </a></div>
     <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item active  ">
-          <a class="nav-link" href="./dashboard.html">
+        <li class="{{request()->is('/')?'active': ''}}">
+          <a class="nav-link" href="/">
             <i class="material-icons">dashboard</i>
             <p>Dashboard</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="./user.html">
+        <li class="{{request()->is('Penduduk')?'active': ''}}">
+          <a class="nav-link" href="/Penduduk">
             <i class="material-icons">person</i>
             <p>Penduduk</p>
           </a>
         </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+        <li class="{{request()->is('Wilayah')?'active': ''}}">
+            <a class="nav-link" href="/Wilayah">
               <i class="material-icons">map</i>
               <p>Wilayah</p>
             </a>
           </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="./tables.html">
+        <li class="{{request()->is('Table')?'active': ''}}">
+          <a class="nav-link" href="/Table">
             <i class="material-icons">view_list</i>
             <p>Table List</p>
           </a>
