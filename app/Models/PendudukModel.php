@@ -4,23 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\PendudukModel as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\DB;
 
 class PendudukModel extends Model
 {
-    protected $table="penduduks";
-    public $timestamps= false;
-    protected $primaryKey = 'nik';
-
-    protected $fillable = [
-        'nik',
-        'nama',
-        'jk',
-        'no_telpon',
-        'alamat',
-        'foto',
-
-    ];
+    public function allData(){
+        return DB::table('penduduks')->paginate(5);
+    }
+    public function addData($data){
+        DB::table('penduduks')->insert($data);
+    }
+    public function detailData($nik){
+        return DB::table('penduduks')->where('nik', $nik)->first();
+    }
+    public function editData($nik, $data){
+        DB::table('penduduks')->where('nik', $nik)->update($data);
+    }
+    public function deleteData($nik){
+        DB::table('penduduks')->where('nik', $nik)->delete();
+    }
 }

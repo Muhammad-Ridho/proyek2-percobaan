@@ -4,24 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\WilayahModel as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\DB;
+
 
 class WilayahModel extends Model
 {
-    protected $table="regions";
-    public $timestamps= false;
-    protected $primaryKey = 'id_region';
-
-    protected $fillable = [
-        'id_region',
-        'nama_daerah',
-        'alamat',
-        'kelurahan',
-        'kecamatan',
-        'alasan',
-        'tanggal',
-
-    ];
+    public function allData(){
+        return DB::table('regions')->paginate(5);
+    }
+    public function addData($data){
+        DB::table('regions')->insert($data);
+    }
+    public function detailData($id_region){
+        return DB::table('regions')->where('id_region', $id_region)->first();
+    }
+    public function editData($id_region, $data){
+        DB::table('regions')->where('id_region', $id_region)->update($data);
+    }
+    public function deleteData($id_region){
+        DB::table('regions')->where('id_region', $id_region)->delete();
+    }
 }
