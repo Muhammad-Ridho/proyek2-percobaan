@@ -7,45 +7,18 @@
                 <div class="col-md-10">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title">Data Penduduk</h4>
+                            <h4 class="card-title">Data Wilayah</h4>
                         </div>
                         <div class="card-body">
 
                             <form action="" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-grup">
-                                    <label>NIK</label>
-                                    <input name="nik" class="form-control @error('nik') is-invalid @enderror">
+                                    <label>NAMA DAERAH</label>
+                                    <input name="nama_daerah" class="form-control @error('nama_daerah') is-invalid @enderror">
                                     <div class="text-danger">
-                                        @error('nik')
-                                            NIM Salah/Kosong
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-grup">
-                                    <label>NAMA LENGKAP</label>
-                                    <input name="nama" class="form-control @error('nama') is-invalid @enderror">
-                                    <div class="text-danger">
-                                        @error('nama')
-                                            Nama Salah/Kosong
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-grup">
-                                    <label>JENIS KELAMIN</label>
-                                    <input name="jk" class="form-control @error('jk') is-invalid @enderror">
-                                    <div class="text-danger">
-                                        @error('jk')
-                                            Jenis Kelamin Salah/Kosong
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-grup">
-                                    <label>NO HP</label>
-                                    <input name="no_telpon" class="form-control @error('no_telpon') is-invalid @enderror">
-                                    <div class="text-danger">
-                                        @error('no_telpon')
-                                            Nomer HP Salah/Kosong
+                                        @error('nama_daerah')
+                                            Nama Daerah Salah/Kosong
                                         @enderror
                                     </div>
                                 </div>
@@ -59,11 +32,38 @@
                                     </div>
                                 </div>
                                 <div class="form-grup">
-                                    <label>Foto</label>
-                                    <input type="file" name="foto" class="form-control @error('foto') is-invalid @enderror">
+                                    <label>KELURAHAN</label>
+                                    <input name="kelurahan" class="form-control @error('kelurahan') is-invalid @enderror">
                                     <div class="text-danger">
-                                        @error('foto')
-                                            Foto Salah/Kosong
+                                        @error('kelurahan')
+                                            Kelurahan Salah/Kosong
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-grup">
+                                    <label>KECAMATAN</label>
+                                    <input name="kecamatan" class="form-control @error('kecamatan') is-invalid @enderror">
+                                    <div class="text-danger">
+                                        @error('kecamatan')
+                                            Kecamatan Salah/Kosong
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-grup">
+                                    <label>ALASAN</label>
+                                    <input name="alasan" class="form-control @error('alasan') is-invalid @enderror">
+                                    <div class="text-danger">
+                                        @error('alasan')
+                                            Alasan Salah/Kosong
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-grup">
+                                    <label>TANGGAL</label>
+                                    <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror">
+                                    <div class="text-danger">
+                                        @error('tanggal')
+                                            Tanggal Salah/Kosong
                                         @enderror
                                     </div>
                                 </div>

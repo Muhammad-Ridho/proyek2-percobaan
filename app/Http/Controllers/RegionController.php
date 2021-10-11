@@ -12,9 +12,9 @@ class RegionController extends Controller
     public function index()
     {
         $data = [
-            'penduduk' => $this->WilayahModel->allData(),
+            'wilayah' => $this->WilayahModel->allData(),
         ];
-        return view('layout.penduduk');
+        return view('layout.wilayah', $data);
     }
 
     public function __construct()
@@ -24,7 +24,7 @@ class RegionController extends Controller
 
     // Add data
     public function add(){
-        return view('layout.addPenduduk');
+        return view('layout.addWilayah');
     }
 
     // Simpan Data

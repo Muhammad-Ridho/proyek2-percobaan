@@ -15,20 +15,20 @@
             <p>Dashboard</p>
           </a>
         </li>
-        <li class="{{request()->is('Penduduk')?'active': ''}}">
-          <a class="nav-link" href="/Penduduk">
+        <li class="{{request()->is('penduduk')?'active': ''}}">
+          <a class="nav-link" href="/penduduk">
             <i class="material-icons">person</i>
             <p>Penduduk</p>
           </a>
         </li>
-        <li class="{{request()->is('Wilayah')?'active': ''}}">
-            <a class="nav-link" href="/Wilayah">
+        <li class="{{request()->is('wilayah')?'active': ''}}">
+            <a class="nav-link" href="/wilayah">
               <i class="material-icons">map</i>
               <p>Wilayah</p>
             </a>
           </li>
-        <li class="{{request()->is('Table')?'active': ''}}">
-          <a class="nav-link" href="/Table">
+        <li class="{{request()->is('table')?'active': ''}}">
+          <a class="nav-link" href="/table">
             <i class="material-icons">view_list</i>
             <p>Table List</p>
           </a>

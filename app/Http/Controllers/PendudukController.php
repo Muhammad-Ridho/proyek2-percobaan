@@ -13,7 +13,7 @@ class PendudukController extends Controller
         $data = [
             'penduduk' => $this->PendudukModel->allData(),
         ];
-        return view('layout.penduduk');
+        return view('layout.penduduk', $data);
     }
 
     public function __construct()

@@ -4,6 +4,11 @@
 <div class="content">
     <div class="row">
         <div class="col-md-12">
+
+            <td>
+                <a href="/wilayah/add" class="btn btn-outline-primary">Tambah</a>
+            </td>
+
             <div class="card">
                 <div class="card-header card-header-primary">
                     <h4 class="card-title ">WILAYAH</h4>
@@ -14,7 +19,7 @@
                         <table class="table">
                             <thead class=" text-primary">
                               <th>
-                                ID
+                                No
                               </th>
                               <th>
                                 Nama Daerah
@@ -29,9 +34,29 @@
                                 Kecamatan
                               </th>
                               <th>
-                                  Alasan
+                                Alasan
+                              </th>
+                              <th>
+                                Tanggal
+                              </th>
+                              <th>
+                                Action
                               </th>
                             </thead>
+                            <tbody>
+                                <?php $no=1; ?>
+                                @foreach ($wilayah as $data)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->nama_daerah }}</td>
+                                        <td>{{ $data->alamat }}</td>
+                                        <td>{{ $data->kelurahan }}</td>
+                                        <td>{{ $data->kecamatan }}</td>
+                                        <td>{{ $data->alasan }}</td>
+                                        <td>{{ $data->tanggal }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>

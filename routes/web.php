@@ -27,10 +27,12 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Penduduk
-Route::get('/Penduduk', [PendudukController::class, 'index'])->name('penduduk');
+Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk');
+Route::get('/penduduk/add', [PendudukController::class, 'add']);
 
 // Region
-Route::get('/Wilayah', [RegionController::class, 'index'])->name('wilayah');
+Route::get('/wilayah', [RegionController::class, 'index'])->name('wilayah');
+Route::get('/wilayah/add', [RegionController::class, 'add']);
 
 // Table
-Route::get('/Table', [TableController::class, 'index'])->name('wilayah');
+Route::get('/table', [TableController::class, 'index'])->name('wilayah');
