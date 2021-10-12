@@ -15,7 +15,9 @@
                 @endif
 
                 <td>
+                    @if ((auth()->user()->level==2))
                     <a href="/penduduk/add" class="btn btn-outline-primary">Tambah</a>
+                    @endif
                 </td>
                 {{-- search --}}
                 <form action="/penduduk/cari" method="GET">
@@ -70,9 +72,11 @@
                                             <td><img src="{{ url('foto_ktp/'.$data->foto) }}" width="100px"></td>
                                             <td>
                                                 <a href="/penduduk/edit/{{ $data->id_penduduk }}" class="btn btn-sm btn-warning">EDIT</a>
+                                                @if (auth()->user()->level==1)
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $data->id_penduduk }}">
                                                     DELETE
                                                 </button>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

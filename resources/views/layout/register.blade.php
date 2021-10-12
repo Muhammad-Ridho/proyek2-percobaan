@@ -35,7 +35,7 @@
                 <div class="wrap-login100">
                     <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
                         <span class="login100-form-title-1">
-                            LOGIN PENCATATAN PENDUDUK
+                            REGISTER PENCATATAN PENDUDUK
                         </span>
                     </div>
                     <form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
@@ -65,6 +65,12 @@
                                 <input class="input100" type="password" name="password" placeholder="Enter password">
                             <span class="focus-input100"></span>
                         </div>
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                            <span class="label-input100">Confirm Password</span>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <span class="focus-input100"></span>
+                        </div>
+
                         <div class="flex-sb-m w-full p-b-30">
                             {{-- <div class="contact100-form-checkbox">
                                 <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
