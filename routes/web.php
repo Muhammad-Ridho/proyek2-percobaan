@@ -29,10 +29,19 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 // Penduduk
 Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk');
 Route::get('/penduduk/add', [PendudukController::class, 'add']);
+Route::post('/penduduk/simpan', [PendudukController::class, 'simpan']);
+Route::get('/penduduk/edit/{id_penduduk}', [PendudukController::class, 'edit']);
+Route::post('/penduduk/update/{id_penduduk}', [PendudukController::class, 'update']);
+Route::get('/penduduk/delete/{id_penduduk}', [PendudukController::class, 'delete']);
+Route::get('/penduduk/cari', [PendudukController::class, 'cari']);
 
 // Region
 Route::get('/wilayah', [RegionController::class, 'index'])->name('wilayah');
 Route::get('/wilayah/add', [RegionController::class, 'add']);
-
+Route::post('/wilayah/simpan', [RegionController::class, 'simpan']);
+Route::get('/wilayah/edit/{id_wilayah}', [RegionController::class, 'edit']);
+Route::post('/wilayah/update/{id_wilayah}', [RegionController::class, 'update']);
+Route::get('/wilayah/delete/{id_wilayah}', [RegionController::class, 'delete']);
+Route::get('/wilayah/cari', [RegionController::class, 'cari']);
 // Table
-Route::get('/table', [TableController::class, 'index'])->name('wilayah');
+// Route::get('/table', [TableController::class, 'index'])->name('wilayah');

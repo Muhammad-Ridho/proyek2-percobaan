@@ -11,14 +11,17 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form action="/penduduk/simpan" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-grup">
                                     <label>NIK</label>
-                                    <input name="nik" class="form-control @error('nik') is-invalid @enderror">
+                                    {{-- <input name="id" class="form-control @error('id') is-invalid @enderror" value="{{ Auth::user()->id }}" readonly> --}}
+                                    <select name="id" class="form-control @error('id') is-invalid @enderror" readonly>
+                                        <option value="{{ Auth::user()->id }}">{{ Auth::user()->nik }}</option>
+                                    </select>
                                     <div class="text-danger">
-                                        @error('nik')
-                                            NIM Salah/Kosong
+                                        @error('id')
+                                            NIK Salah/Kosong
                                         @enderror
                                     </div>
                                 </div>

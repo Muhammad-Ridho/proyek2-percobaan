@@ -27,12 +27,12 @@
               <p>Wilayah</p>
             </a>
           </li>
-        <li class="{{request()->is('table')?'active': ''}}">
+        {{-- <li class="{{request()->is('table')?'active': ''}}">
           <a class="nav-link" href="/table">
             <i class="material-icons">view_list</i>
             <p>Table List</p>
           </a>
-        </li>
+        </li> --}}
       </ul>
     </div>
   </div>

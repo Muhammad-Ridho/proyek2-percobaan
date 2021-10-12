@@ -14,8 +14,8 @@ class RelasiRegionsTable extends Migration
     public function up()
     {
         Schema::table('regions', function (Blueprint $table) {
-            $table->string('nik')->nullable();
-            $table->foreign('nik')->references('nik')->on('penduduks');
+            $table->unsignedBigInteger('id_penduduk')->nullable();
+            $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduks');
         });
     }
 
@@ -28,7 +28,7 @@ class RelasiRegionsTable extends Migration
     {
         Schema::table('regions', function (Blueprint $table) {
             $table->string('penduduks');
-            $table->dropForeign(['nik']);
+            $table->dropForeign(['id_penduduk']);
         });
     }
 }

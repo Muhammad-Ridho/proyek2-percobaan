@@ -9,18 +9,29 @@ use Illuminate\Support\Facades\DB;
 class PendudukModel extends Model
 {
     public function allData(){
-        return DB::table('penduduks')->paginate(5);
+        return DB::table('penduduks')
+        ->join('users', 'users.id', '=', 'penduduks.id')
+        ->paginate(5);
     }
     public function addData($data){
         DB::table('penduduks')->insert($data);
     }
-    public function detailData($nik){
-        return DB::table('penduduks')->where('nik', $nik)->first();
+    public function detailData($id_penduduk){
+        return DB::table('penduduks')->where('id_penduduk', $id_penduduk)
+        ->join('users', 'users.id', '=', 'penduduks.id')
+        ->first();
+
     }
-    public function editData($nik, $data){
-        DB::table('penduduks')->where('nik', $nik)->update($data);
+    public function editData($id_penduduk, $data){
+        DB::table('penduduks')->where('id_penduduk', $id_penduduk)->update($data);
     }
-    public function deleteData($nik){
-        DB::table('penduduks')->where('nik', $nik)->delete();
+    public function deleteData($id_penduduk){
+        DB::table('penduduks')->where('id_penduduk', $id_penduduk)->delete();
     }
+    public function tambah(){
+        return DB::table('penduduks')
+        ->join('users', 'users.id', '=', 'penduduks.id')
+        ->get();
+    }
+
 }

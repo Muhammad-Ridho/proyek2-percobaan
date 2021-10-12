@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="content">
-    <div class="container-fluid"><h1>Halaman Home</h1></div>
+    <div class="pull-center">
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" href="#" class="btn btn-default btn-flat">Log out</button>
+        </form>
+    </div>
   </div>
 
 @endsection

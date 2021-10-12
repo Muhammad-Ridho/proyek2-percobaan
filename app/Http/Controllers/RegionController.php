@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PendudukModel;
 use App\Models\WilayahModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 
 class RegionController extends Controller
 {
@@ -20,16 +20,22 @@ class RegionController extends Controller
     public function __construct()
     {
         $this->WilayahModel = new WilayahModel();
+        $this->PendudukModel = new PendudukModel();
     }
 
     // Add data
     public function add(){
-        return view('layout.addWilayah');
+        $data = [
+            'wilayah' => $this->WilayahModel->tambah(),
+            'penduduk' => $this->PendudukModel->allData(),
+        ];
+        return view('layout.addWilayah', $data);
     }
 
     // Simpan Data
     public function simpan(){
         Request()->validate([
+            'id_penduduk' => 'required',
             'nama_daerah' => 'required',
             'alamat' => 'required',
             'kelurahan' => 'required',
@@ -39,6 +45,7 @@ class RegionController extends Controller
         ]);
 
         $data = [
+            'id_penduduk' => Request()->id_penduduk,
             'nama_daerah' => Request()->nama_daerah,
             'alamat' => Request()->alamat,
             'kelurahan' => Request()->kelurahan,
@@ -59,10 +66,12 @@ class RegionController extends Controller
 
         // mengambil data dari table pegawai sesuai pencarian data
         $data = [
-            'penduduk' => DB::table('penduduks')
+            'wilayah' => DB::table('regions')
+            ->join('penduduks', 'penduduks.id_penduduk', '=', 'regions.id_penduduk')
             ->where('nama_daerah','like',"%".$cari."%")
             ->orWhere('kelurahan','like',"%".$cari."%")
             ->orWhere('kecamatan','like',"%".$cari."%")
+            ->orWhere('nama','like',"%".$cari."%")
             ->paginate(5),
         ];
 
@@ -76,11 +85,12 @@ class RegionController extends Controller
         $data = [
             'wilayah' => $this->WilayahModel->detailData($id_region),
         ];
-        return view('layout.pendudukEdit', $data);
+        return view('layout.wilayahEdit', $data);
     }
     // update
     public function update($id_region){
         Request()->validate([
+            // 'id_penduduk' => 'required',
             'nama_daerah' => 'required',
             'alamat' => 'required',
             'kelurahan' => 'required',
@@ -90,6 +100,7 @@ class RegionController extends Controller
         ]);
 
         $data = [
+            // 'id_penduduk' => Request()->id_penduduk,
             'nama_daerah' => Request()->nama_daerah,
             'alamat' => Request()->alamat,
             'kelurahan' => Request()->kelurahan,

@@ -5,9 +5,23 @@
         <div class="row">
             <div class="col-md-12">
 
+                    {{-- PESAN --}}
+                @if (session('pesan'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-check"></i> Sucsess!</h4>
+                    {{session('pesan')}}.
+                </div>
+                @endif
+
                 <td>
                     <a href="/penduduk/add" class="btn btn-outline-primary">Tambah</a>
                 </td>
+                {{-- search --}}
+                <form action="/penduduk/cari" method="GET">
+                    <input type="text" name="cari" placeholder="Cari Penduduk .." value="{{ old('cari') }}" class="btn btn-outline-primary btn-sm">
+                    <input type="submit" value="CARI" class="btn btn-primary btn-sm">
+                </form>
 
                 <div class="card">
                     <div class="card-header card-header-primary">
@@ -53,11 +67,40 @@
                                             <td>{{ $data->jk }}</td>
                                             <td>{{ $data->no_telpon }}</td>
                                             <td>{{ $data->alamat }}</td>
-                                            <td><img src="{{ url('foto_nik/'.$data->foto) }}" width="100px"></td>
+                                            <td><img src="{{ url('foto_ktp/'.$data->foto) }}" width="100px"></td>
+                                            <td>
+                                                <a href="/penduduk/edit/{{ $data->id_penduduk }}" class="btn btn-sm btn-warning">EDIT</a>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $data->id_penduduk }}">
+                                                    DELETE
+                                                </button>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                                {{-- delete notif --}}
+                                @foreach ($penduduk as $data)
+                                <div class="modal modal-danger fade" id="delete{{ $data->id_penduduk }}">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title">PERINGATAN!!</h4>
+                                            </div>
+                                        <div class="modal-body">
+                                            <p>Yakin menghapus data {{ $data->nama }} ?</p>
+                                        </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">NO</button>
+                                                <a href="/penduduk/delete/{{ $data->id_penduduk }}" class="btn btn-outline">YES</a>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                <!-- /.modal-dialog -->
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
