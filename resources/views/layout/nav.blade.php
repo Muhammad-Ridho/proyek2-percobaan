@@ -26,6 +26,12 @@
               <i class="material-icons">map</i>
               <p>Wilayah</p>
             </a>
+        </li>
+        <li class="{{request()->is('surat')?'active': ''}}">
+            <a class="nav-link" href="/surat">
+              <i class="material-icons">assignment</i>
+              <p>Cetak Surat</p>
+            </a>
           </li>
         {{-- <li class="{{request()->is('table')?'active': ''}}">
           <a class="nav-link" href="/table">

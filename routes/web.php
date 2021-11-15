@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\SuratController;
 use App\Http\Controllers\TableController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -44,4 +45,4 @@ Route::post('/wilayah/update/{id_wilayah}', [RegionController::class, 'update'])
 Route::get('/wilayah/delete/{id_wilayah}', [RegionController::class, 'delete']);
 Route::get('/wilayah/cari', [RegionController::class, 'cari']);
 // Table
-// Route::get('/table', [TableController::class, 'index'])->name('wilayah');
+Route::get('/surat', [SuratController::class, 'index'])->name('surat');
